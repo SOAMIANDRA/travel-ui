@@ -2,8 +2,10 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import { useChangeLocale, useCurrentLocale, useI18n } from "@/locales/client";
-import cover from '../../images/lemurien.jpeg'
-import { Box, Typography } from "@mui/material";
+import cover from '../../images/lemurien.png'
+import { Box, Button, Modal, Typography } from "@mui/material";
+import { useState } from "react";
+import ResponsiveAppBar from "@/components/ResponsiveAppBar";
 
 export default function Home() {
   const t = useI18n()
@@ -11,15 +13,13 @@ export default function Home() {
   const locale = useCurrentLocale()
   return (
     <>
+      <ResponsiveAppBar/>
       <Box
         component="section"
         sx={{
           width: '100%',
           height: { xs: '100vh', md: '100vh' },
-          backgroundImage: `url(${cover.src})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
+          background: 'linear-gradient(to bottom, #0077b6, #ffffff)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -31,11 +31,29 @@ export default function Home() {
       >
         <Box>
           <Typography variant="h3" sx={{ fontWeight: 'bold', mb: 2 }}>
-            Découvrez Madagascar autrement
+            {t("title")}
           </Typography>
           <Typography variant="h6">
-            Explorez les merveilles naturelles du pays rouge
+            {t("subtitle")}
           </Typography>
+          <Button
+            variant="contained"
+            sx={{
+              mt: 2,
+              backgroundColor: "#267BF1", // orange chaud
+              color: "white",
+              fontWeight: "bold",
+              textTransform: "none",
+              padding: "12px 24px",
+              borderRadius: "8px",
+              fontSize: "1rem",
+              '&:hover': {
+                backgroundColor: "#267BF1", // orange plus foncé au hover
+              },
+            }}
+          >
+            {t("hero-button")}
+          </Button>
         </Box>
       </Box>
     </>

@@ -13,8 +13,8 @@ import {
 } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import AdbIcon from '@mui/icons-material/Adb';
-import React from "react";
-import { useChangeLocale, useI18n } from "@/locales/client";
+import React, { useState } from "react";
+import { useChangeLocale, useCurrentLocale, useI18n } from "@/locales/client";
 
 const pages = ['destination', 'offers', 'book-now'];
 
@@ -39,6 +39,7 @@ function ResponsiveAppBar() {
 
   const t = useI18n();
   const changeLocale = useChangeLocale();
+  const locale = useCurrentLocale();
 
   return (
     <AppBar position="fixed">
@@ -140,8 +141,16 @@ function ResponsiveAppBar() {
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title={t('open-settings')}>
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Typography>{t('language')}</Typography>
+              <IconButton 
+                onClick={handleOpenUserMenu} 
+                sx={
+                  { 
+                    backgroundColor: "#267BF1", 
+                    color: "white"
+                  }
+                }
+              >
+                <Typography>{locale.toUpperCase()}</Typography>
               </IconButton>
             </Tooltip>
             <Menu
@@ -161,13 +170,13 @@ function ResponsiveAppBar() {
               onClose={handleCloseUserMenu}
             >
                 <MenuItem onClick={() => changeLocale('de')}>
-                  <Typography sx={{ textAlign: 'center' }}>Deutch</Typography>
+                  <Typography sx={{ textAlign: 'center' }}>🇩🇪</Typography>
                 </MenuItem>
                 <MenuItem onClick={() => changeLocale('en')}>
-                  <Typography sx={{ textAlign: 'center' }}>English</Typography>
+                  <Typography sx={{ textAlign: 'center' }}>🇬🇧</Typography>
                 </MenuItem>
                 <MenuItem onClick={() => changeLocale('fr')}>
-                  <Typography sx={{ textAlign: 'center' }}>Francais</Typography>
+                  <Typography sx={{ textAlign: 'center' }}>🇫🇷</Typography>
                 </MenuItem>
             </Menu>
           </Box>
