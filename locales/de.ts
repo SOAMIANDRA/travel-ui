@@ -7,6 +7,17 @@ export default {
     'language': 'Sprache',
     'open-settings': 'Einstellungen öffnen',
     'title':'Madagaskar anders entdecken',
-    'subtitle':'Erkunden Sie die Naturwunder des roten Landes und lassen Sie sich von den einzigartigen Landschaften der Welt begeistern',
-    'hero-button':'Jetzt buchen'
+    'subtitle':'Entdecken Sie die Naturwunder des Roten Landes und lassen Sie sich von seiner einzigartigen Landschaft verzaubern.',
+    'hero-button':'Jetzt buchen',
+    'form-title':'Eine Buchung vornehmen',
+    'firstname':'Vornamen',
+    'lastname' : 'Nachname',
+    'email':'email',
+    'arrival-date':'Ankunftsdatum',
+    'departure-date':'Abreisedatum',
+    'passengers-number':'Anzahl der Reisenden',
+    'prefered-offer':'Vorzugsangebot',
+    'wallet-crypto':'Transaktions-ID (TXID)',
+    'description-trip':'Beschreiben Sie Ihre Reise',
+    'submit':'Absenden'
 } as const

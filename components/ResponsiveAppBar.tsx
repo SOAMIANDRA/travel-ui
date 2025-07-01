@@ -15,6 +15,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import AdbIcon from '@mui/icons-material/Adb';
 import React, { useState } from "react";
 import { useChangeLocale, useCurrentLocale, useI18n } from "@/locales/client";
+import { useRouter } from "next/navigation";
 
 const pages = ['destination', 'offers', 'book-now'];
 
@@ -40,9 +41,10 @@ function ResponsiveAppBar() {
   const t = useI18n();
   const changeLocale = useChangeLocale();
   const locale = useCurrentLocale();
+  const router = useRouter();
 
   return (
-    <AppBar position="fixed">
+    <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -89,18 +91,32 @@ function ResponsiveAppBar() {
               onClose={handleCloseNavMenu}
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
-                <MenuItem onClick={handleCloseNavMenu}>
+                <MenuItem onClick={
+                  () => {
+                    router.push("/destination");
+                    handleCloseNavMenu()
+                  }
+                }>
                   <Typography sx={{ textAlign: 'center' }}>{t('destination')}</Typography>
                 </MenuItem>
-                <MenuItem onClick={handleCloseNavMenu}>
+                <MenuItem onClick={
+                  () => {
+                    router.push("/offers");
+                    handleCloseNavMenu()
+                  }
+                }>
                   <Typography sx={{ textAlign: 'center' }}>{t('offers')}</Typography>
                 </MenuItem>
-                <MenuItem onClick={handleCloseNavMenu}>
+                <MenuItem onClick={
+                  () => {
+                    router.push("/book/new");
+                    handleCloseNavMenu()
+                  }
+                }>
                   <Typography sx={{ textAlign: 'center' }}>{t('book-now')}</Typography>
                 </MenuItem>
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -112,28 +128,27 @@ function ResponsiveAppBar() {
               flexGrow: 1,
               fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
           >
-            LOGO
+            Mad-reisen
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               <Button
-                onClick={handleCloseNavMenu}
+                onClick={()=> router.push("/destination")}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {t('destination')}
               </Button>
               <Button
-                onClick={handleCloseNavMenu}
+                onClick={()=> router.push("/offers")}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {t('offers')}
               </Button>
               <Button
-                onClick={handleCloseNavMenu}
+                onClick={()=> router.push("/book/new")}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {t('book-now')}

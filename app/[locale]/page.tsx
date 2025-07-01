@@ -5,7 +5,6 @@ import { useChangeLocale, useCurrentLocale, useI18n } from "@/locales/client";
 import cover from '../../images/lemurien.png'
 import { Box, Button, Modal, Typography } from "@mui/material";
 import { useState } from "react";
-import ResponsiveAppBar from "@/components/ResponsiveAppBar";
 
 export default function Home() {
   const t = useI18n()
@@ -13,7 +12,6 @@ export default function Home() {
   const locale = useCurrentLocale()
   return (
     <>
-      <ResponsiveAppBar/>
       <Box
         component="section"
         sx={{

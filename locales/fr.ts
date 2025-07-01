@@ -8,5 +8,16 @@ export default {
     'open-settings': 'Ouvrir les paramètres',
     'title':'Découvrez Madagascar autrement',
     'subtitle':'Explorez les merveilles naturelles du pays rouge et Laissez-vous émerveiller par des paysages uniques au monde',
-    'hero-button':'Réserver maintenant'
+    'hero-button':'Réserver maintenant',
+    'form-title':'Faire une réservation',
+    'firstname':'Prenoms',
+    'lastname' : 'Nom',
+    'email':'email',
+    'arrival-date':'Date d’arrivée',
+    'departure-date':'Date de départ',
+    'passengers-number':'Nombre de voyageurs',
+    'prefered-offer':'offre préférentielle',
+    'wallet-crypto':'Transaction-ID (TXID)',
+    'description-trip':'Décrivez votre voyage',
+    'submit':'Envoyer'
 } as const

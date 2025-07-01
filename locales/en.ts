@@ -8,5 +8,16 @@ export default {
     'open-settings': 'Open settings',
     'title':'Discover Madagascar differently',
     'subtitle':'Explore the natural wonders of the red country and marvel at its unique landscapes.',
-    'hero-button':'Book now'
+    'hero-button':'Book now',
+    'form-title':'Make a reservation',
+    'firstname':'firstname',
+    'lastname' : 'lastname',
+    'email':'email',
+    'arrival-date':'arrival date',
+    'departure-date':'departure date',
+    'passengers-number':'number of passengers',
+    'prefered-offer':'prefered offer',
+    'wallet-crypto':'Transaction-ID (TXID)',
+    'description-trip':'Describe your trip',
+    'submit':'Submit'
 } as const
