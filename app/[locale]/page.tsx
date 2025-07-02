@@ -1,13 +1,10 @@
 'use client'
-import { useChangeLocale, useCurrentLocale, useI18n } from "@/locales/client";
-import { Box, Button, Modal, Typography } from "@mui/material";
-import { useState } from "react";
+import { useI18n } from "@/locales/client";
+import { Box, Button, Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
   const t = useI18n()
-  const changeLocale = useChangeLocale()
-  const locale = useCurrentLocale()
   const router = useRouter()
   return (
     <>

@@ -12,12 +12,9 @@ import {
     Typography 
 } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
-import AdbIcon from '@mui/icons-material/Adb';
-import React, { useState } from "react";
+import React from "react";
 import { useChangeLocale, useCurrentLocale, useI18n } from "@/locales/client";
 import { useRouter } from "next/navigation";
-
-const pages = ['destination', 'offers', 'book-now'];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
