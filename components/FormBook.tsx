@@ -46,9 +46,18 @@ export default function FormBook({
   const router = useRouter();
   const t = useI18n();
 
+  const selectedOffer = offers.find(o => o.id === parseInt(preferredOffer));
+  const getNbJours = () => {
+    const d1 = new Date(arrivalDate);
+    const d2 = new Date(departureDate);
+    const diff = d2.getTime() - d1.getTime();
+    return Math.max(1, Math.ceil(diff / (1000 * 60 * 60 * 24)));
+  };
+  const totalPrice = selectedOffer ? selectedOffer.dailyPrice * getNbJours() : 0;
+  const walletAddress = "TAbCdEfGhijkLmNoPQRstUvWxYZ12345678"; // 👉 Adresse TRC20 ici
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    // On ouvre le modal pour demander le TXID
     setOpenModal(true);
   };
 
@@ -130,9 +139,7 @@ export default function FormBook({
             />
           </Stack>
           <Stack direction="row" spacing={2} sx={{ mb: 2 }}>
-            <FormControl
-              fullWidth
-            >
+            <FormControl fullWidth>
               <InputLabel id="offer-label">{t('prefered-offer')}</InputLabel>
               <Select
                 labelId="offer-label"
@@ -147,9 +154,7 @@ export default function FormBook({
                 ))}
               </Select>
             </FormControl>
-            <FormControl
-              fullWidth
-            >
+            <FormControl fullWidth>
               <InputLabel id="destination-label">{t('destination')}</InputLabel>
               <Select
                 labelId="destination-label"
@@ -179,11 +184,19 @@ export default function FormBook({
         </form>
       </Box>
 
-      {/* ✅ Modal pour entrer le TXID */}
+      {/* ✅ Modal de confirmation */}
       <Dialog open={openModal} onClose={() => setOpenModal(false)}>
         <DialogTitle>{t('confirm-reservation')}</DialogTitle>
         <DialogContent>
-          <DialogContentText>{t('enter-txid')}</DialogContentText>
+          <DialogContentText sx={{ mb: 1 }}>
+            {t('enter-txid')}
+          </DialogContentText>
+          <Typography variant="body2" sx={{ mb: 1 }}>
+            {t('payment-amount')}{totalPrice} USDT
+          </Typography>
+          <Typography variant="body2" sx={{ fontWeight: 'bold', mb: 2 }}>
+            {t('payment-instruction-bold')}{walletAddress}
+          </Typography>
           <TextField
             autoFocus
             margin="dense"
@@ -197,7 +210,11 @@ export default function FormBook({
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setOpenModal(false)}>{t('cancel')}</Button>
-          <Button onClick={handleConfirmReservation} variant="contained">
+          <Button
+            onClick={handleConfirmReservation}
+            variant="contained"
+            disabled={!transactionID.trim()}
+          >
             {t('confirm')}
           </Button>
         </DialogActions>

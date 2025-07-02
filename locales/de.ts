@@ -23,5 +23,8 @@ export default {
     'confirm-reservation': "Reservierung bestätigen",
     'enter-txid': "Bitte geben Sie die Transaktions-ID zur Bestätigung ein",
     'cancel': "Abbrechen",
-    'confirm': "Bestätigen"
+    'confirm': "Bestätigen",
+    'payment-amount': "💰 Zu zahlender Betrag: ",
+    'payment-instruction-bold': "Bitte senden Sie das Geld an diese Krypto-Wallet-Adresse über das TRC20-Netzwerk: "
+
 } as const
