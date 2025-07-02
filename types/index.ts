@@ -1,25 +1,22 @@
 export interface Destination {
-    id:number,
     name:string
 }
 
 export interface Offer {
-    id:number,
     name:string,
     description:string,
     dailyPrice:number
 }
 
-export interface Reservation {
-    id:number,
+export interface IReservation {
     firstname:string,
+    lastname:string,
     email:string,
     arrivalDate:Date,
     departureDate:Date,
     passengersNumber:number,
     transactionID:string,
-    prefferedOffer:Offer,
-    destination:Destination,
-    descriptionTrip:string,
-    createdAt:Date
+    prefferedOfferId:number,
+    destinationId:number,
+    descriptionTrip:string
 }

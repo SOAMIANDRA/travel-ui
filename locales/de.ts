@@ -19,5 +19,9 @@ export default {
     'prefered-offer':'Vorzugsangebot',
     'wallet-crypto':'Transaktions-ID (TXID)',
     'description-trip':'Beschreiben Sie Ihre Reise',
-    'submit':'Absenden'
+    'submit':'Absenden',
+    'confirm-reservation': "Reservierung bestätigen",
+    'enter-txid': "Bitte geben Sie die Transaktions-ID zur Bestätigung ein",
+    'cancel': "Abbrechen",
+    'confirm': "Bestätigen"
 } as const

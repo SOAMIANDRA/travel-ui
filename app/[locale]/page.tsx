@@ -1,15 +1,14 @@
 'use client'
-import Image from "next/image";
-import styles from "./page.module.css";
 import { useChangeLocale, useCurrentLocale, useI18n } from "@/locales/client";
-import cover from '../../images/lemurien.png'
 import { Box, Button, Modal, Typography } from "@mui/material";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const t = useI18n()
   const changeLocale = useChangeLocale()
   const locale = useCurrentLocale()
+  const router = useRouter()
   return (
     <>
       <Box
@@ -36,6 +35,7 @@ export default function Home() {
           </Typography>
           <Button
             variant="contained"
+            onClick={() => router.push("/book/new")}
             sx={{
               mt: 2,
               backgroundColor: "#267BF1", // orange chaud

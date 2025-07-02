@@ -19,5 +19,9 @@ export default {
     'prefered-offer':'prefered offer',
     'wallet-crypto':'Transaction-ID (TXID)',
     'description-trip':'Describe your trip',
-    'submit':'Submit'
+    'submit':'Submit',
+    'confirm-reservation': "Confirm Reservation",
+    'enter-txid': "Please enter the transaction ID to confirm",
+    'cancel': "Cancel",
+    'confirm': "Confirm"
 } as const

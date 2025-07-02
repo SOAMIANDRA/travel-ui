@@ -31,6 +31,7 @@ model Offer {
 model Reservation {
   id               Int      @id @default(autoincrement())
   firstname        String
+  lastname         String
   email            String
   arrivalDate      DateTime
   departureDate    DateTime
